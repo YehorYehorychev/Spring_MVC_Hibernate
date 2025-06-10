@@ -35,4 +35,10 @@ public class MyController {
         employeeService.saveEmployee(employee);
         return "redirect:/";
     }
+
+    @RequestMapping("/updateInfo")
+    public String updateEmployee() {
+
+        return "redirect:/";
+    }
 }
