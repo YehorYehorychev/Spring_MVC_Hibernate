@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+    http://www.springframework.org/schema/beans/spring-beans.xsd
+    http://www.springframework.org/schema/context
+    http://www.springframework.org/schema/context/spring-context.xsd">
+
+    <context:property-placeholder location="classpath:application.properties"/>
+
+    <bean id="myDog"
+          class="com.yehorychev.springe2e.ioc.Dog">
+    </bean>
+
+    <bean id="myCat"
+          class="com.yehorychev.springe2e.ioc.Cat">
+    </bean>
+
+    <bean id="myTiger"
+          class="com.yehorychev.springe2e.ioc.Tiger"
+          init-method="init"
+          destroy-method="destroy">
+    </bean>
+
+    <bean id="myPerson"
+          class="com.yehorychev.springe2e.ioc.Person">
+        <property name="pet" ref="myDog"/>
+        <property name="name" value="${person.name}"/>
+        <property name="age" value="${person.age}"/>
+        <!--<constructor-arg ref="myCat"/>-->
+    </bean>
+
+    <!--    <context:annotation-config/>
+        <context:component-scan base-package="com.yehorychev.springe2e"/>-->
+
+</beans>
