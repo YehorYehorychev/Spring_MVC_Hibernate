@@ -21,4 +21,10 @@ public class MyRESTController {
         List<Employee> allEmployees = employeeService.getAllEmployees();
         return allEmployees;
     }
+
+    @GetMapping("/employees/{id}")
+    public Employee getEmployee(@PathVariable int id) {
+        Employee employee = employeeService.getEmployee(id);
+        return employee;
+    }
 }
