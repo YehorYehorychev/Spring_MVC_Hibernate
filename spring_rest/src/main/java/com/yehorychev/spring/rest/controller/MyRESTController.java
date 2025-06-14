@@ -26,8 +26,7 @@ public class MyRESTController {
         Employee employee = employeeService.getEmployee(id);
 
         if (employee == null) {
-            throw new NoSuchEmployeeException("There is no employee with id: " +
-                    id + " in Database. Please try to use different id!");
+            throw new NoSuchEmployeeException("There is no employee with id: " + id + " in Database. Please try to use different id!");
         }
 
         return employee;
@@ -47,6 +46,12 @@ public class MyRESTController {
 
     @DeleteMapping("/employees/{id}")
     public String deleteEmployee(@PathVariable int id) {
+        Employee employee = employeeService.getEmployee(id);
+
+        if (employee == null) {
+            throw new NoSuchEmployeeException("There is no employee with id: " + id + " in Database. Please try to use different id!");
+        }
+
         employeeService.deleteEmployee(id);
         return "Employee with id: " + id + " was deleted";
     }
