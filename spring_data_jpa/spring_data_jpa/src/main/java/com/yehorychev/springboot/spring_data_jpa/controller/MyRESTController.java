@@ -26,6 +26,12 @@ public class MyRESTController {
         return employee;
     }
 
+    @GetMapping("/employees/name/{name}")
+    public List<Employee> showAllEmployeesByName(@PathVariable String name) {
+        List<Employee> employees = employeeService.findAllByName(name);
+        return employees;
+    }
+
     @PostMapping("/employees")
     public Employee addNewEmployee(@RequestBody Employee employee) {
         employeeService.saveEmployee(employee);
